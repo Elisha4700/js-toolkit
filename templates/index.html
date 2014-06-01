@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" ng-app="App">
+<head>
+
+    <meta charset="UTF-8">
+    <title>JS Toolkit</title>
+
+    <script src="../scripts/common/config.js"></script>
+
+    <script src="../scripts/libs/angular.js"></script>
+    <script src="../scripts/libs/angular-route.js"></script>
+
+
+    <script src="../scripts/Controllers/MainCtrl.js"></script>
+
+    <script src="../scripts/app.js"></script>
+
+</head>
+<body ng-controller="MainCtrl">
+
+    <ul class="apps">
+        <li ng-repeat="app in apps">
+            <a href="#{{app}}">{{app}}</a>
+        </li>
+    </ul>
+
+    <div class="project-wrapper">
+        <ul class="projects">
+        </ul>
+
+        <div class="project-actions">
+            <div class="add"></div>
+            <div class="remove"></div>
+        </div>
+    </div>
+
+
+
+
+    <ng-view></ng-view>
+
+
+</body>
+</html>
