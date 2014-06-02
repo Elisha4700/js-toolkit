@@ -1,0 +1,12 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/nw-app\/scss\/_reset\.scss}line{font-family:\000031}}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/nw-app\/scss\/style\.scss}line{font-family:\000035}}
+.project-wrapper {
+  float: left;
+  width: 150px;
+  border-right: 1px solid black;
+}
