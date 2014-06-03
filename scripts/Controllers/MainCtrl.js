@@ -19,10 +19,7 @@
     }
 
     function ProjectCtrl($scope, StoreSrv) {
-        $scope.projects = [
-            "ODA",
-            "Sidebar"
-        ];
+        $scope.projects = [];
 
         $scope.onAddProject = function () {
             console.debug('Open directory dialog:');
@@ -55,6 +52,11 @@
             var pathArr = path.split('/');
             return pathArr[ pathArr.length -1 ];
         }
+
+        // Initialization
+        (function () {
+            $scope.projects = StoreSrv.get('projects', []);
+        })();
 
     }
 
