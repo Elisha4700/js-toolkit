@@ -42,13 +42,13 @@
 
 
         <div class="project-actions">
-            <div class="btn add" ng-click="onAdd()">+ Add</div>
-            <div class="btn remove" ng-click="onRemove()">- Rmove</div>
+
+            <input style="display:none;" id="fileDialog" type="file" nwdirectory nwworkingdir="/Users" />
+
+            <div class="btn add" ng-click="onAddProject()">+ Add</div>
+            <div class="btn remove" ng-click="onRemoveProject()">- Rmove</div>
         </div>
     </div>
-
-
-    <!-- <input type="file" webkitdirectory="/home/path/" /> -->
 
     <ul class="apps">
         <li ng-repeat="app in apps" ng-class="{selected: app.isSelected}">

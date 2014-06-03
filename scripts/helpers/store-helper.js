@@ -5,7 +5,13 @@ function StoreHelper() {
         localStorage.setItem(key, JSON.stringify(data));
     };
 
-    this.get = function (key) {
-        return JSON.parseJson(localStorage.getItem(key));
+    this.get = function (key, defaultValue) {
+        var result = localStorage.getItem(key);
+        if (!result) {
+            return defaultValue;
+        }
+        return JSON.parse(result);
     };
+
+
 }
