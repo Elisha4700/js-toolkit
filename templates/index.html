@@ -26,41 +26,72 @@
     <script src="../scripts/Services/BowerSrv.js"></script>
     <script src="../scripts/Services/StoreSrv.js"></script>
     <script src="../scripts/app.js"></script>
-
 </head>
 <body ng-controller="MainCtrl">
+<div id="holder"></div>
 
-    <div ng-controller="ProjectCtrl" class="project-wrapper"  >
+<div ng-controller="ProjectCtrl" class="project-wrapper">
 
-        <h2>Projects: </h2>
+    <h2>Projects: </h2>
 
-        <ul class="projects">
-            <li ng-repeat="proj in projects" ng-click="onProjectClick(proj)" ng-class="{selected: proj.isCurrent}">
-                {{proj.name}}
-            </li>
-        </ul>
-
-
-        <div class="project-actions">
-
-            <input style="display:none;" id="fileDialog" type="file" nwdirectory nwworkingdir="/Users" />
-
-            <div class="btn add" ng-click="onAddProject()">+ Add</div>
-            <div class="btn remove" ng-click="onRemoveProject()">- Rmove</div>
-        </div>
-    </div>
-
-    <ul class="apps">
-        <li ng-repeat="app in apps" ng-class="{selected: app.isSelected}">
-            <a href="#/{{app.name|lowercase}}"
-                ng-click="switchApp(app)">
-                {{app.name}}
-            </a>
+    <ul class="projects">
+        <li ng-repeat="proj in projects" ng-click="onProjectClick(proj)" ng-class="{selected: proj.isCurrent}">
+            {{proj.name}}
         </li>
     </ul>
 
 
-    <ng-view></ng-view>
+    <div class="project-actions">
 
+        <input style="display:none;" id="fileDialog" type="file" nwdirectory nwworkingdir="/Users"/>
+
+        <div class="btn add" ng-click="onAddProject()">+ Add</div>
+        <div class="btn remove" ng-click="onRemoveProject()">- Rmove</div>
+    </div>
+</div>
+
+<ul class="apps">
+    <li ng-repeat="app in apps" ng-class="{selected: app.isSelected}">
+        <a href="#/{{app.name|lowercase}}"
+           ng-click="switchApp(app)">
+            {{app.name}}
+        </a>
+    </li>
+</ul>
+
+
+<ng-view></ng-view>
+
+<script type="text/javascript">
+
+    // prevent default behavior from changing page on dropped file
+    window.ondragover = function (e) {
+        e.preventDefault();
+        return false;
+    };
+    window.ondrop = function (e) {
+        e.preventDefault();
+        return false;
+    };
+
+    var holder = document.getElementById('holder');
+    holder.ondragover = function () {
+        this.className = 'hover';
+        return false;
+    };
+    holder.ondragend = function () {
+        this.className = '';
+        return false;
+    };
+    holder.ondrop = function (e) {
+        e.preventDefault();
+
+        for (var i = 0; i < e.dataTransfer.files.length; ++i) {
+            console.log(e.dataTransfer.files[i].path);
+        }
+        return false;
+    };
+
+</script>
 </body>
 </html>

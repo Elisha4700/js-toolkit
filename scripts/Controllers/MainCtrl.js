@@ -1,4 +1,4 @@
-(function (angular, undefined) {
+(function (window, document, angular, undefined) {
     'use strict';
 
     var app = angular.module('Controllers', []);
@@ -8,6 +8,7 @@
 
     function MainCtrl($scope) {
         $scope.apps = angular.copy(CONFIG.APPS);
+        $scope.showDropZone = false;
 
         $scope.switchApp = function (app) {
             for (var key in $scope.apps) {
@@ -16,6 +17,7 @@
             app.isSelected = true;
         };
 
+
     }
 
     function ProjectCtrl($scope, StoreSrv) {
@@ -23,7 +25,7 @@
 
         $scope.onAddProject = function () {
             var chooser = document.querySelector('#fileDialog');
-            chooser.addEventListener("change", function(evt) {
+            chooser.addEventListener("change", function (evt) {
                 saveProject(this.value);
             }, false);
             chooser.click();
@@ -58,11 +60,11 @@
 
         function getNameFromPath(path) {
             var pathArr = path.split('/');
-            return pathArr[ pathArr.length -1 ];
+            return pathArr[ pathArr.length - 1 ];
         }
 
         function apply() {
-            if(!$scope.$$phase) {
+            if (!$scope.$$phase) {
                 $scope.$apply();
             }
         }
@@ -86,10 +88,10 @@
         };
 
         function apply() {
-            if(!$scope.$$phase) {
+            if (!$scope.$$phase) {
                 $scope.$apply();
             }
         }
     }
 
-})(angular);
+})(window, document, angular);
