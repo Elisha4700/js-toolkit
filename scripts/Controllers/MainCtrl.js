@@ -22,17 +22,23 @@
         $scope.projects = [];
 
         $scope.onAddProject = function () {
-            console.debug('Open directory dialog:');
             var chooser = document.querySelector('#fileDialog');
             chooser.addEventListener("change", function(evt) {
                 saveProject(this.value);
             }, false);
-
             chooser.click();
         };
 
         $scope.onRemove = function () {
             console.debug('Remove');
+        };
+
+        $scope.onProjectClick = function (proj) {
+            var i, len = $scope.projects.length;
+            for (i = 0; i < len; i++) {
+                $scope.projects[i].isCurrent = false;
+            }
+            proj.isCurrent = true;
         };
 
         function saveProject(path) {
@@ -46,11 +52,19 @@
             });
 
             StoreSrv.set('projects', projects);
+            $scope.projects = projects;
+            apply();
         }
 
         function getNameFromPath(path) {
             var pathArr = path.split('/');
             return pathArr[ pathArr.length -1 ];
+        }
+
+        function apply() {
+            if(!$scope.$$phase) {
+                $scope.$apply();
+            }
         }
 
         // Initialization

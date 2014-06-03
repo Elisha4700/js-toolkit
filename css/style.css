@@ -23,6 +23,6 @@ html, body {
   margin: 0 5px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/nw-app\/scss\/style\.scss}line{font-family:\0000321}}
-.apps li.selected {
+.apps li.selected, .projects li.selected {
   text-decoration: underline;
 }

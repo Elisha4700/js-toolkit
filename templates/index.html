@@ -35,7 +35,7 @@
         <h2>Projects: </h2>
 
         <ul class="projects">
-            <li ng-repeat="proj in projects">
+            <li ng-repeat="proj in projects" ng-click="onProjectClick(proj)" ng-class="{selected: proj.isCurrent}">
                 {{proj.name}}
             </li>
         </ul>
