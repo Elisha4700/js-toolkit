@@ -3,7 +3,8 @@
 
     var app = angular.module('App', [
         'ngRoute',
-        'Controllers'
+        'Controllers',
+        'Bower'
         ]);
 
 

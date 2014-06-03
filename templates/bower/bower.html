@@ -1,1 +1,13 @@
-<h1>Bower</h1>
+<div ng-controller="BowerCtrl" class="bower-wrapper">
+    <h1>Bower</h1>
+    <input type="text" ng-model="searchText"/>
+    <button ng-click="bowerSearch()">Search</button>
+
+    <br/>
+    <ul class="bower-results">
+        <li ng-repeat="res in bowerResults">
+            {{res.name}}
+        </li>
+    </ul>
+</div>
+
