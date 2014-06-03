@@ -5,7 +5,8 @@
         'ngRoute',
         'Controllers',
         'Bower',
-        'Store'
+        'Store',
+        'Projects'
         ]);
 
 

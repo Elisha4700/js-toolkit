@@ -13,5 +13,7 @@ function StoreHelper() {
         return JSON.parse(result);
     };
 
-
+    this.remove = function (key) {
+        localStorage.removeItem(key);
+    }
 }

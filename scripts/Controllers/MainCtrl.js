@@ -3,7 +3,7 @@
 
     var app = angular.module('Controllers', []);
     app.controller('MainCtrl', ['$scope', MainCtrl]);
-    app.controller('ProjectCtrl', ['$scope', 'StoreSrv', ProjectCtrl]);
+    app.controller('ProjectCtrl', ['$scope', 'ProjectsSrv', ProjectCtrl]);
     app.controller('BowerCtrl', ['$scope', 'BowerSrv', BowerCtrl]);
 
     function MainCtrl($scope) {
@@ -16,17 +16,16 @@
             }
             app.isSelected = true;
         };
-
-
     }
 
-    function ProjectCtrl($scope, StoreSrv) {
+    function ProjectCtrl($scope, ProjectsSrv) {
         $scope.projects = [];
 
         $scope.onAddProject = function () {
             var chooser = document.querySelector('#fileDialog');
             chooser.addEventListener("change", function (evt) {
-                saveProject(this.value);
+                $scope.projects = ProjectsSrv.addProject(this.value);
+                apply();
             }, false);
             chooser.click();
         };
@@ -36,32 +35,9 @@
         };
 
         $scope.onProjectClick = function (proj) {
-            var i, len = $scope.projects.length;
-            for (i = 0; i < len; i++) {
-                $scope.projects[i].isCurrent = false;
-            }
-            proj.isCurrent = true;
-        };
-
-        function saveProject(path) {
-            // TODO: Move this logic to a new service: Project service!
-            console.log('Path: ', path);
-            var projects = StoreSrv.get('projects', []);
-
-            projects.push({
-                name: getNameFromPath(path),
-                path: path
-            });
-
-            StoreSrv.set('projects', projects);
-            $scope.projects = projects;
+            $scope.projects = ProjectsSrv.selectProject(proj);
             apply();
-        }
-
-        function getNameFromPath(path) {
-            var pathArr = path.split('/');
-            return pathArr[ pathArr.length - 1 ];
-        }
+        };
 
         function apply() {
             if (!$scope.$$phase) {
@@ -71,7 +47,7 @@
 
         // Initialization
         (function () {
-            $scope.projects = StoreSrv.get('projects', []);
+            $scope.projects = ProjectsSrv.getAllProjects();
         })();
 
     }
