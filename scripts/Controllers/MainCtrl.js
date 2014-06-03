@@ -5,11 +5,16 @@
     app.controller('MainCtrl', ['$scope', MainCtrl]);
     app.controller('ProjectCtrl', ['$scope', ProjectCtrl]);
 
-
     function MainCtrl($scope) {
-        $scope.apps = CONFIG.APPS;
+        $scope.apps = angular.copy(CONFIG.APPS);
 
-        console.debug('Main Controller initialized');
+        $scope.switchApp = function (app) {
+            for (var key in $scope.apps) {
+                $scope.apps[key].isSelected = false;
+            }
+            app.isSelected = true;
+        };
+
     }
 
 
@@ -29,4 +34,3 @@
     }
 
 })(angular);
-

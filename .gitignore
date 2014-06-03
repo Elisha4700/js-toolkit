@@ -49,3 +49,4 @@ projectFilesBackup/
 # Other
 ######################
 bower_components/
+node_packages/

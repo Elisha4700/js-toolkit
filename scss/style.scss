@@ -8,3 +8,18 @@
     width: 150px;
     border-right: 1px solid black;
 }
+
+.apps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li{
+        float: left;
+        margin: 0 5px;
+
+        &.selected{
+            text-decoration: underline;
+        }
+    }
+}
