@@ -1,3 +1,24 @@
+# IDE & Other Stuff #
+#####################
+.idea
+.sass-cache
+node_modules/
+public/components
+projectFilesBackup/
+
+# Other
+######################
+bower_components/
+components/
+node_modules/
+
+
+
+#######################
+# Suggested by GitHub #
+#######################
+
+
 # Compiled source #
 ###################
 *.com
@@ -37,16 +58,3 @@
 Icon?
 ehthumbs.db
 Thumbs.db
-
-# IDE & Other Stuff #
-#####################
-.idea
-.sass-cache
-node_modules/
-public/components
-projectFilesBackup/
-
-# Other
-######################
-bower_components/
-node_modules/
