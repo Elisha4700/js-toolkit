@@ -44,16 +44,18 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-right: 1px solid black; }
+  border-right: 1px solid #e7e7e7; }
   .sidebar h2 {
     width: inherit;
     height: 40px;
-    border: 1px solid lime;
-    align-self: flex-start; }
+    align-self: flex-start;
+    font-size: 20px;
+    padding: 14px 0 0 10px;
+    color: #777; }
   .sidebar .projects {
     display: flex;
     flex-direction: column;
-    align-self: stretch; }
+    flex-grow: 1; }
   .sidebar .project-actions {
     width: inherit;
     display: flex;
@@ -65,4 +67,6 @@ html, body {
 
 .main {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex-grow: 1; }
