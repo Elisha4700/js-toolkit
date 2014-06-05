@@ -1,5 +1,5 @@
 (function (window, undefined) {
-  'use strict';
+    'use strict';
 
     window.CONFIG = {
         DEBUG: true,
