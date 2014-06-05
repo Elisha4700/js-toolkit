@@ -1,10 +1,11 @@
 (function (window, undefined) {
-    'use strict';
+  'use strict';
 
     window.CONFIG = {
         DEBUG: true,
 
         PROJECTS: 'projects',
+        PLATFORM: (/^win/.test(process.platform) ? 'WIN' : 'MAC'),
 
         APPS: [
             { name: 'Yeoman', isSelected: true  },
