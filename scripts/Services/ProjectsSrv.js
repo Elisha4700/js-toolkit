@@ -53,7 +53,8 @@ angular.module('Projects', ['Store']).factory('ProjectsSrv', ['StoreSrv', functi
     };
 
     function getNameFromPath(path) {
-        var pathArr = path.split('/');
+        var delim = (CONFIG.PLATFORM === 'MAC') ? '/' : '\\' ;
+        var pathArr = path.split(delim);
         return pathArr[pathArr.length - 1];
     }
 

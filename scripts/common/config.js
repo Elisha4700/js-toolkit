@@ -5,6 +5,7 @@
         DEBUG: true,
 
         PROJECTS: 'projects',
+
         PLATFORM: (/^win/.test(process.platform) ? 'WIN' : 'MAC'),
 
         APPS: [
