@@ -35,6 +35,10 @@
             {
                 templateUrl: 'npm/npm.html'
             })
+            .when('/settings',
+            {
+                templateUrl: 'settings/settings.html'
+            })
             .otherwise({
                 redirectTo: '/yeoman'
             });
