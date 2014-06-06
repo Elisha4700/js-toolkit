@@ -51,7 +51,8 @@ html, body {
     align-self: flex-start;
     font-size: 20px;
     padding: 14px 0 0 10px;
-    color: #777; }
+    color: #777;
+    margin-bottom: 0; }
   .sidebar .projects {
     display: flex;
     flex-direction: column;

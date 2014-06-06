@@ -2,99 +2,96 @@
 <html lang="en" ng-app="App">
 <head>
 
-	<meta charset="UTF-8">
-	<title>JS Toolkit</title>
+    <meta charset="UTF-8">
+    <title>JS Toolkit</title>
 
-	<link rel="stylesheet" href="../css/bootstrap.css">
-	<link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
 
-	<script src="../scripts/common/config.js"></script>
+    <script src="../scripts/common/config.js"></script>
 
-	<script src="../scripts/libs/angular.js"></script>
-	<script src="../scripts/libs/angular-route.js"></script>
+    <script src="../scripts/libs/angular.js"></script>
+    <script src="../scripts/libs/angular-route.js"></script>
 
-	<!-- Helpers -->
-	<script src="../scripts/helpers/bower-helper.js"></script>
-	<script src="../scripts/helpers/store-helper.js"></script>
+    <!-- Helpers -->
+    <script src="../scripts/helpers/bower-helper.js"></script>
+    <script src="../scripts/helpers/store-helper.js"></script>
 
 
-	<!-- Controllers -->
-	<script src="../scripts/Controllers/MainCtrl.js"></script>
+    <!-- Controllers -->
+    <script src="../scripts/Controllers/MainCtrl.js"></script>
 
-	<!-- Services -->
-	<script src="../scripts/Services/FileSystemSrv.js"></script>
-	<script src="../scripts/Services/BowerSrv.js"></script>
-	<script src="../scripts/Services/StoreSrv.js"></script>
-	<script src="../scripts/Services/ProjectsSrv.js"></script>
-	<script src="../scripts/app.js"></script>
+    <!-- Services -->
+    <script src="../scripts/Services/FileSystemSrv.js"></script>
+    <script src="../scripts/Services/BowerSrv.js"></script>
+    <script src="../scripts/Services/StoreSrv.js"></script>
+    <script src="../scripts/Services/ProjectsSrv.js"></script>
+    <script src="../scripts/app.js"></script>
 </head>
 <body ng-controller="MainCtrl" class="flexbox-parent">
 
 <div class="sidebar">
-	<nav class="navbar navbar-default navbar-static-top" role="navigation">
-		<h2>Projects: </h2>
-	</nav>
+    <h2 class="navbar navbar-default navbar-static-top">Projects: </h2>
 
+    <div class="projects list-group">
+        <a href="#" class="list-group-item active">
+            Tabby.in
+            <span class="badge">2</span>
+        </a>
+        <a href="#" class="list-group-item">On Demand App</a>
+        <a href="#" class="list-group-item">Sidebar</a>
+        <a href="#" class="list-group-item">
+            JS Toolkit
+            <span class="badge">3</span>
+        </a>
+        <a href="#" class="list-group-item">Sinapsa</a>
+    </div>
 
-	<div class="projects list-group">
-		<a href="#" class="list-group-item active">
-			Tabby.in
-			<span class="badge">2</span>
-		</a>
-		<a href="#" class="list-group-item">On Demand App</a>
-		<a href="#" class="list-group-item">Sidebar</a>
-		<a href="#" class="list-group-item">
-			JS Toolkit
-			<span class="badge">3</span>
-		</a>
-		<a href="#" class="list-group-item">Sinapsa</a>
-	</div>
-
-	<div class="project-actions">
-		<div class="btn btn-default add">
-			<span class="glyphicon glyphicon-plus"></span>
-			Add
-		</div>
-		<div class="btn btn-default remove">
-			<span class="glyphicon glyphicon-minus"></span>
-			Remove
-		</div>
-	</div>
+    <div class="project-actions">
+        <div class="btn btn-default add">
+            <span class="glyphicon glyphicon-plus"></span>
+            Add
+        </div>
+        <div class="btn btn-default remove">
+            <span class="glyphicon glyphicon-minus"></span>
+            Remove
+        </div>
+    </div>
 
 </div>
 
 
 <div class="main">
 
-	<nav class="navbar navbar-default navbar-static-top" role="navigation">
-		<!--<div class="container">-->
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Yeoman</a></li>
-			<li><a href="#">
-				Bower
-				<span class="badge">5</span>
-			</a></li>
-			<li><a href="#">Grunt</a></li>
-			<li><a href="#">Gulp</a></li>
-			<li><a href="#">Karma</a></li>
-		</ul>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <!--<div class="container">-->
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Yeoman</a></li>
+            <li><a href="#">
+                Bower
+                <span class="badge">5</span>
+            </a></li>
+            <li><a href="#">Grunt</a></li>
+            <li><a href="#">Gulp</a></li>
+            <li><a href="#">Karma</a></li>
+        </ul>
 
-		<ul class="nav navbar-nav navbar-right">
-			<li>
-				<a href="#">
-					<span class="glyphicon glyphicon-cog"></span>
-					Settings
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<span class="glyphicon glyphicon-remove"></span>
-					Close
-				</a>
-			</li>
-		</ul>
-		<!--</div>-->
-	</nav>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#">
+                    <span class="glyphicon glyphicon-cog"></span>
+                    Settings
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="glyphicon glyphicon-remove"></span>
+                    Close
+                </a>
+            </li>
+        </ul>
+        <!--</div>-->
+    </nav>
 </div>
 
 
@@ -134,34 +131,34 @@
 
 <script type="text/javascript">
 
-	// prevent default behavior from changing page on dropped file
-	//    window.ondragover = function (e) {
-	//        e.preventDefault();
-	//        return false;
-	//    };
-	//    window.ondrop = function (e) {
-	//        e.preventDefault();
-	//        return false;
-	//    };
-	//
-	//    var holder = document.getElementById('holder');
-	//    holder.ondragover = function () {
-	//        this.className = 'hover';
-	//        return false;
-	//    };
-	//    holder.ondragend = function () {
-	//        this.className = '';
-	//        return false;
-	//    };
-	//    holder.ondrop = function (e) {
-	//        e.preventDefault();
-	//
-	//        for (var i = 0; i < e.dataTransfer.files.length; ++i) {
-	//            console.log(e.dataTransfer.files[i].path);
-	//        }
-	//        return false;
-	//    };
-	//
+    // prevent default behavior from changing page on dropped file
+    //    window.ondragover = function (e) {
+    //        e.preventDefault();
+    //        return false;
+    //    };
+    //    window.ondrop = function (e) {
+    //        e.preventDefault();
+    //        return false;
+    //    };
+    //
+    //    var holder = document.getElementById('holder');
+    //    holder.ondragover = function () {
+    //        this.className = 'hover';
+    //        return false;
+    //    };
+    //    holder.ondragend = function () {
+    //        this.className = '';
+    //        return false;
+    //    };
+    //    holder.ondrop = function (e) {
+    //        e.preventDefault();
+    //
+    //        for (var i = 0; i < e.dataTransfer.files.length; ++i) {
+    //            console.log(e.dataTransfer.files[i].path);
+    //        }
+    //        return false;
+    //    };
+    //
 </script>
 </body>
 </html>
