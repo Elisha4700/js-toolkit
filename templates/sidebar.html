@@ -1,25 +1,18 @@
+<input style="display:none;" id="fileDialog" type="file" nwdirectory nwworkingdir="/Users"/>
 <h2 class="navbar navbar-default navbar-static-top">Projects: </h2>
 
 <div class="projects list-group">
-    <a href="#" class="list-group-item active">
-        Tabby.in
-        <span class="badge">2</span>
+    <a ng-repeat="proj in projects" href="#" class="list-group-item" ng-class="{active: proj.isSelected}">
+        {{proj.name}}
     </a>
-    <a href="#" class="list-group-item">On Demand App</a>
-    <a href="#" class="list-group-item">Sidebar</a>
-    <a href="#" class="list-group-item">
-        JS Toolkit
-        <span class="badge">3</span>
-    </a>
-    <a href="#" class="list-group-item">Sinapsa</a>
 </div>
 
 <div class="project-actions">
-    <div class="btn btn-default add">
+    <div class="btn btn-default add" ng-click="onAddProject()">
         <span class="glyphicon glyphicon-plus"></span>
         Add
     </div>
-    <div class="btn btn-default remove">
+    <div class="btn btn-default remove" ng-click="onRemoveProject()">
         <span class="glyphicon glyphicon-minus"></span>
         Remove
     </div>
