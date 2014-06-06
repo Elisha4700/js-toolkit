@@ -57,6 +57,8 @@ html, body {
     display: flex;
     flex-direction: column;
     flex-grow: 1; }
+    .sidebar .projects a {
+      border-radius: 0 !important; }
   .sidebar .project-actions {
     width: inherit;
     display: flex;
