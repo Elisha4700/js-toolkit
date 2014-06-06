@@ -7,8 +7,7 @@
         'Bower',
         'Store',
         'Projects'
-        ]);
-
+    ]);
 
     app.config(function ($routeProvider) {
         $routeProvider
@@ -32,9 +31,15 @@
             {
                 templateUrl: 'karma/karma.html'
             })
+            .when('/npm',
+            {
+                templateUrl: 'npm/npm.html'
+            })
             .otherwise({
                 redirectTo: '/yeoman'
             });
     });
+
+    window.App = app;
 
 })(angular);

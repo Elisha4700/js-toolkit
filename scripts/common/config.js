@@ -13,7 +13,8 @@
             { name: 'Bower', isSelected: false },
             { name: 'Grunt', isSelected: false },
             { name: 'Gulp', isSelected: false },
-            { name: 'Karma', isSelected: false }
+            { name: 'Karma', isSelected: false },
+            { name: 'NPM', isSelected: false }
         ]
 
     };

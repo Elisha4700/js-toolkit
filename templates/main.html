@@ -1,13 +1,8 @@
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Yeoman</a></li>
-        <li><a href="#">
-            Bower
-            <span class="badge">5</span>
-        </a></li>
-        <li><a href="#">Grunt</a></li>
-        <li><a href="#">Gulp</a></li>
-        <li><a href="#">Karma</a></li>
+        <li ng-repeat="app in apps" ng-class="{active: app.isSelected}">
+            <a href="#/{{app.name|lowercase}}">{{app.name}}</a>
+        </li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
@@ -26,6 +21,7 @@
     </ul>
 </nav>
 
+<ng-view></ng-view>
 
 <!--<div id="holder"></div>-->
 
@@ -59,4 +55,3 @@
 <!--</ul>-->
 
 
-<!--<ng-view></ng-view>-->
