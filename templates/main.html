@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <ul class="nav navbar-nav">
         <li ng-repeat="app in apps" ng-class="{active: app.isSelected}">
-            <a href="#/{{app.name|lowercase}}">{{app.name}}</a>
+            <a href="#/{{app.name|lowercase}}" ng-click="switchApp(app)">{{app.name}}</a>
         </li>
     </ul>
 

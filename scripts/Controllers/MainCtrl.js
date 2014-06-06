@@ -19,7 +19,16 @@
                 $scope.apps[key].isSelected = false;
             }
             app.isSelected = true;
+            apply();
         };
+
+
+        function apply() {
+            if (!$scope.$$phase) {
+                $scope.$apply();
+            }
+        }
+
     }
 
 })(window, document, angular);
