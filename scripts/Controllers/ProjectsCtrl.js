@@ -23,7 +23,7 @@
             chooser.click();
         };
 
-        $scope.onRemove = function () {
+        $scope.onRemoveProject = function () {
             $scope.projects = ProjectsSrv.removeProject();
             apply();
         };

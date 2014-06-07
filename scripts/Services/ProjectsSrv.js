@@ -83,5 +83,5 @@ angular.module('Projects', ['Store']).factory('ProjectsSrv', ['StoreSrv', functi
         return pathArr[pathArr.length - 1];
     }
 
-    return service;
+    return this;
 }]);
