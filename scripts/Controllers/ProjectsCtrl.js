@@ -24,7 +24,8 @@
         };
 
         $scope.onRemove = function () {
-            console.debug('Remove');
+            $scope.projects = ProjectsSrv.removeProject();
+            apply();
         };
 
         $scope.onProjectClick = function (proj) {

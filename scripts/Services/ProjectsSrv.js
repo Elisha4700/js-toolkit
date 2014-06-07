@@ -1,59 +1,84 @@
 angular.module('Projects', ['Store']).factory('ProjectsSrv', ['StoreSrv', function (Store) {
     'use strict';
 
-    var service = {};
-
-    service.getAllProjects = function () {
+    this.getAllProjects = function () {
         return Store.get(CONFIG.PROJECTS, []);
     };
 
-    service.addProject = function (path) {
-        var projects = service.getAllProjects(),
+    this.addProject = function (path) {
+        var projects = this.getAllProjects(),
             proj = {
                 id: '' + new Date().getTime(),
                 name: getNameFromPath(path),
                 path: path,
-                isCurrent: false
+                isSelected: false
             };
 
         projects.push(proj);
-        Store.set(CONFIG.PROJECTS, projects);
-        return projects;
+        return saveProjects(projects);
     };
 
-    service.selectProject = function (proj) {
-        var projects = service.getAllProjects(),
+    this.selectProject = function (proj) {
+        var projects = this.getAllProjects(),
             i, len = projects.length;
 
         for (i = 0; i < len; i++) {
             projects[i].isSelected = (projects[i].id == proj.id);
         }
 
-        Store.set(CONFIG.PROJECTS, projects);
-        return projects;
+        return saveProjects(projects);
     };
 
-    service.removeProject = function (proj) {
-        // TODO: implement removal of project from the array.
+    this.removeProject = function (proj) {
+        var newProjects = [],
+            projects = this.getAllProjects(),
+            selectedProjIndex = 0,
+            i, len = projects.length;
+
+        // If there is only one project, and its gonna get deleted anyway... then return an empty array.
+        if (len === 1) {
+            this.removeAllProjects();
+            return [];
+        }
+
+        for (i = 0; i < len; i++) {
+            if (projects[i].isSelected) {
+                selectedProjIndex = i;
+            } else {
+                newProjects.push(projects[i]);
+            }
+        }
+
+        if (newProjects.length <= selectedProjIndex) {
+            selectedProjIndex--;
+        }
+        newProjects[selectedProjIndex].isSelected = true;
+
+        return saveProjects(newProjects);
     };
 
-    service.removeAllProjects = function () {
+    this.removeAllProjects = function () {
         Store.remove(CONFIG.PROJECTS);
     };
 
-    service.getCurrentProject = function () {
-        var projects = service.getAllProjects(),
+    this.getCurrentProject = function () {
+        var projects = this.getAllProjects(),
             i, len = projects.length;
 
         for (i = 0; i < len; i++) {
-            if(projects[i].isCurrent) {
+            if (projects[i].isSelected) {
                 return projects[i];
             }
         }
     };
 
+    function saveProjects(projects) {
+        Store.set(CONFIG.PROJECTS, projects);
+        return projects;
+    }
+
     function getNameFromPath(path) {
-        var delim = (CONFIG.PLATFORM === 'MAC') ? '/' : '\\' ;
+        var delim = (CONFIG.PLATFORM === 'MAC') ? '/' : '\\';
         var pathArr = path.split(delim);
         return pathArr[pathArr.length - 1];
     }
