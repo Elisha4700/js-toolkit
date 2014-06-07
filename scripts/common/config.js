@@ -10,12 +10,24 @@
 
         APPS: [
             { name: 'Yeoman', isSelected: true  },
-            { name: 'Bower', isSelected: false },
-            { name: 'Grunt', isSelected: false },
-            { name: 'Gulp', isSelected: false },
-            { name: 'Karma', isSelected: false },
-            { name: 'NPM', isSelected: false }
-        ]
+            { name: 'Bower',  isSelected: false },
+            { name: 'Grunt',  isSelected: false },
+            { name: 'Gulp',   isSelected: false },
+            { name: 'Karma',  isSelected: false },
+            { name: 'NPM',    isSelected: false }
+        ],
+
+        BOWER: {},
+
+        YEOMAN: {},
+
+        GRUNT: {},
+
+        GULP: {},
+
+        NPM: {},
+
+        KARMA: {}
 
     };
 

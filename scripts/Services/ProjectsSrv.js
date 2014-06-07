@@ -26,7 +26,7 @@ angular.module('Projects', ['Store']).factory('ProjectsSrv', ['StoreSrv', functi
             i, len = projects.length;
 
         for (i = 0; i < len; i++) {
-            projects[i].isCurrent = (projects[i].id == proj.id);
+            projects[i].isSelected = (projects[i].id == proj.id);
         }
 
         Store.set(CONFIG.PROJECTS, projects);
